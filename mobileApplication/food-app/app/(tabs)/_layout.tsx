@@ -4,13 +4,11 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { SQLiteProvider } from 'expo-sqlite';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <SQLiteProvider databaseName="food.db" assetSource={{ assetId: require('../../assets/db/food.db') }}>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -44,6 +42,5 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
-    </SQLiteProvider>
   );
 }
