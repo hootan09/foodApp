@@ -1,6 +1,6 @@
-## Vitamins and minerals in Food and nutrition
+## Vitamins and minerals in food and nutrition
 
-#### working with data (write to sqlite db or create csv):
+### working with data (write to sqlite db or create csv):
 
 ##### Prisma Migration:
 ```sh
