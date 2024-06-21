@@ -1,0 +1,47 @@
+// const metrics = await prisma.metric.findMany({
+  // // where: { published: true },
+  // // include: { author: true },
+// })
+//-----------------------------------------------------------
+// const newData = await prisma.metric.create({
+//   data: {
+//     humidity,
+//     temprature,
+//     moisture
+//   },
+// })
+//-----------------------------------------------------------
+//   const { id } = '1'
+//   const metric = await prisma.metric.update({
+//     where: { id },
+//     // data: { published: true },
+//   })
+//-----------------------------------------------------------
+// const { id } = '1'
+// const deleteData = await prisma.metric.delete({
+//   where: {
+//     id,
+//   },
+// })
+//-----------------------------------------------------------
+// try {
+//     const { id } = req.params
+//     let metric = {};
+//     if(id == -1){
+//       metric = await prisma.metric.findMany({
+//         orderBy: {
+//           id: 'desc',
+//         },
+//         take: 1
+//       })
+//     }else{
+//       metric = await prisma.metric.findMany({
+//         where: {
+//           id: +id,
+//         }
+//       })
+//     }
+//   } catch (error) {
+//     console.log(error);
+// }
+//-----------------------------------------------------------

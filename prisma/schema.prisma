@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// model User {
+//   id    Int     @id @default(autoincrement())
+//   email String  @unique
+//   name  String?
+//   posts Post[]
+//   createdAt DateTime @default(now()
+// }
+
+// model Post {
+  // id        Int     @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   published Boolean @default(false)
+//   author    User    @relation(fields: [authorId], references: [id])
+//   authorId  Int
+//   temprature  Float?
+// }
+
+model Food {
+  Id                            Int     @id @default(autoincrement())
+  Category                      String?
+  Description                   String? 
+  Nutrient_Data_Bank_Number     Int    //@unique
+  Alpha_Carotene                Float?
+  Beta_Carotene                 Float?
+  Beta_Cryptoxanthin            Float?
+  Carbohydrate                  Float?
+  Cholesterol                   Float?
+  Choline                       Float?
+  Fiber                         Float?
+  Lutein_and_Zeaxanthin         Float?
+  Lycopene                      Float?
+  Niacin                        Float?
+  Protein                       Float?
+  Retinol                       Float?
+  Riboflavin                    Float?
+  Selenium                      Float?
+  Sugar_Total                   Float?
+  Thiamin                       Float?
+  Water                         Float?
+  Fat_Monosaturated_Fat         Float?
+  Fat_Polysaturated_Fat         Float?
+  Fat_Saturated_Fat             Float?
+  Fat_Total_Lipid               Float?
+  Major_Minerals_Calcium        Float?
+  Major_Minerals_Copper         Float?
+  Major_Minerals_Iron           Float?
+  Major_Minerals_Magnesium      Float?
+  Major_Minerals_Phosphorus     Float?
+  Major_Minerals_Potassium      Float?
+  Major_Minerals_Sodium         Float?
+  Major_Minerals_Zinc           Float?
+  Vitamins_Vitamin_A_RAE        Float?
+  Vitamins_Vitamin_B12          Float?
+  Vitamins_Vitamin_B6           Float?
+  Vitamins_Vitamin_C            Float?
+  Vitamins_Vitamin_E            Float?
+  Vitamins_Vitamin_K            Float?
+}
+
