@@ -3,6 +3,28 @@ import fs from 'fs'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
+const apiCall2PersianWithOllama = async(text = '')=> {
+  /* run ollama api server command: '$ ollama serve' */
+  const res = await fetch('http://localhost:11434/api/generate', {
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          model: "gemma2",//"llama3",//"tinyllama",//"phi3",
+          prompt: `translate this to persian language shortly and return only translated text. '${text}'`,
+          // format: "json",
+          stream: false,
+          "options": {
+              "seed": 123
+          }
+      })
+  })
+  const result = await res.json();
+  // console.log(result.response.replace('</start_of_turn>', ''));
+  return result.response.replace('</start_of_turn>', '').replaceAll('\n', '')
+}
+
 const csv2db = async()=>{
   let start = performance.now();
 
@@ -53,9 +75,11 @@ const csv2db = async()=>{
               Vitamins_Vitamin_C: parseFloat(row[35].replaceAll(/"/g, '')),
               Vitamins_Vitamin_E: parseFloat(row[36].replaceAll(/"/g, '')),
               Vitamins_Vitamin_K: parseFloat(row[37].replaceAll(/"/g, '')),
+              Category_Persian: await apiCall2PersianWithOllama(row[0].replaceAll(/"/g, '')),
+              Description_Persian: await apiCall2PersianWithOllama(row[1].replaceAll(/"/g, '')),
             }
           })
-          if(index%500 == 0){
+          if(index%10 == 0){
             let timeTaken = performance.now() - start;
             console.log(`${index} rows added to db time: ${parseInt(timeTaken/1000)} second`);
           }

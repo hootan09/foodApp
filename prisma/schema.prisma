@@ -31,7 +31,9 @@ datasource db {
 model Food {
   Id                            Int     @id @default(autoincrement())
   Category                      String?
+  Category_Persian              String?
   Description                   String? 
+  Description_Persian           String? 
   Nutrient_Data_Bank_Number     Int    //@unique
   Alpha_Carotene                Float?
   Beta_Carotene                 Float?
